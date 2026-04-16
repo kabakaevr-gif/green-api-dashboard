@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Тестовое задание: mini-dashboard для GREEN API (WhatsApp API)">
+  <title>GREEN API Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>GREEN API Dashboard</h1>
+      <p>Управление методами WhatsApp API: getSettings, getStateInstance, sendMessage, sendFileByUrl</p>
+    </header>
+
+    <main class="dashboard">
+      <section class="card card-form">
+        <div class="card-title-row">
+          <h2>Параметры подключения</h2>
+          <button id="fillDemoBtn" class="btn btn-secondary" type="button">Заполнить тестовыми данными</button>
+        </div>
+
+        <div class="grid">
+          <label class="field">
+            <span>idInstance</span>
+            <input id="idInstance" type="text" placeholder="Например: 1101000000" autocomplete="off">
+          </label>
+
+          <label class="field">
+            <span>apiTokenInstance</span>
+            <input id="apiTokenInstance" type="password" placeholder="Введите токен инстанса" autocomplete="off">
+          </label>
+
+          <label class="field">
+            <span>phone (получатель)</span>
+            <input id="phone" type="text" placeholder="79991234567" autocomplete="off">
+          </label>
+
+          <label class="field field-full">
+            <span>message (текст сообщения)</span>
+            <textarea id="message" rows="3" placeholder="Введите текст сообщения"></textarea>
+          </label>
+
+          <label class="field field-full">
+            <span>fileUrl (ссылка на файл)</span>
+            <input id="fileUrl" type="url" placeholder="https://example.com/file.pdf" autocomplete="off">
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="getSettingsBtn" class="btn" type="button">getSettings</button>
+          <button id="getStateInstanceBtn" class="btn" type="button">getStateInstance</button>
+          <button id="sendMessageBtn" class="btn" type="button">sendMessage</button>
+          <button id="sendFileByUrlBtn" class="btn" type="button">sendFileByUrl</button>
+        </div>
+      </section>
+
+      <section class="card card-response">
+        <div class="card-title-row">
+          <h2>Ответ API</h2>
+          <span id="statusBadge" class="status status-idle">Ожидание</span>
+        </div>
+
+        <textarea id="apiResponse" class="response" readonly placeholder="Здесь появится ответ API в формате JSON"></textarea>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
